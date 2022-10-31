@@ -9,6 +9,7 @@ import model.entities.Persona;
 import javax.persistence.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 @Entity
 @Table
@@ -44,8 +45,13 @@ public class Usuario extends EntidadPersistente {
 
   }
 
-  private void iniciarSesion(){
-    //TODO
+  public Boolean iniciarSesion(String contraseniaIngresada) throws InterruptedException{
+    int cantidadDeintentos = 0;
+    if (contraseniaIngresada.equals(this.contrasenia)){ 
+    }else{
+      cantidadDeintentos++;
+      TimeUnit.SECONDS.sleep(3L *cantidadDeintentos);
+    }
   }
 
   private void cerrarSesion(){
@@ -73,7 +79,4 @@ public class Usuario extends EntidadPersistente {
     throw  new RuntimeException("no posee permiso para esta accion");
 
   }
-
-
-
 }
