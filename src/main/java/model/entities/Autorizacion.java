@@ -11,4 +11,8 @@ public class Autorizacion {
     this.aceptado = aceptado;
     this.personaAutorizada = personaAutorizada;
   }
+
+    public void aceptarse() {
+    aceptado = true;
+    }
 }

@@ -1,4 +1,6 @@
-package model.seguridad;
+package model.Repositorios;
+
+import model.seguridad.Usuario;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package model.seguridad;
+package model.Repositorios;
 
 import model.entities.Autorizacion;
 

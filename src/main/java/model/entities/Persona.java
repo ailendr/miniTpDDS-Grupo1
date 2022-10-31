@@ -42,8 +42,19 @@ public class Persona {
     this.foto = foto;
   }
 
+  public void agregarAutorizacion(Autorizacion autorizacion){
+    autorizaciones.add(autorizacion);
+  }
+
   public void delegar(Persona persona){
     Autorizacion autorizacion = new Autorizacion(persona, false, this);
     persona.agregarAutorizacion(autorizacion);
+    this.agregarAutorizacion(autorizacion);
   }
+
+  public void aceptarDelegacion( Autorizacion autorizacion){
+    autorizacion.aceptarse();
+  }
+
+
 }
