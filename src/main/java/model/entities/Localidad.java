@@ -3,14 +3,15 @@ package model.entities;
 
 import model.db.EntidadPersistente;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Localidad")
 public class Localidad extends EntidadPersistente {
   @Column(name="nombre")
   private String nombre;
+  @ManyToOne
+  @JoinColumn(name="provincia_id", referencedColumnName = "id")
+  private Provincia provincia;
 
 }

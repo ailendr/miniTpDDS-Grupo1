@@ -1,12 +1,14 @@
 package model.entities;
 
 import model.db.EntidadPersistente;
+import org.hibernate.engine.transaction.jta.platform.internal.JOnASJtaPlatform;
 
 import javax.persistence.*;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -24,18 +26,18 @@ public class Persona  extends EntidadPersistente {
   @Column(name= "fechaNacimiento", columnDefinition = "DATE")
   private LocalDate fechaNacimiento;
 
-  /*@OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL}, fetch= FetchType.LAZY )*/
-  @Transient
-  private ArrayList <Autorizacion> autorizaciones;
 
- /* @ManyToOne
-  @JoinColumn(name="ciudad_id", referencedColumnName = "id")*/
+  @OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL}, fetch= FetchType.LAZY )
   @Transient
+  private List<Autorizacion> autorizaciones;
+
+  @ManyToOne
+  @JoinColumn(name="ciudad_id", referencedColumnName = "id")
   private Ciudad ciudad;
 
-  /*@ManyToOne
-  @JoinColumn(name="localidad_id", referencedColumnName = "id")*/
-  @Transient
+  @ManyToOne
+  @JoinColumn(name="localidad_id", referencedColumnName = "id")
+
   private Localidad localidad;
 
   @Transient
