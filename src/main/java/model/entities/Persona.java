@@ -52,9 +52,18 @@ public class Persona {
     this.agregarAutorizacion(autorizacion);
   }
 
+  //lo realizacia la presona a autorizar
   public void aceptarDelegacion( Autorizacion autorizacion){
     autorizacion.aceptarse();
   }
-
-
+  
+  //lo realizacia la presona a autorizar
+  public void rechazarDelegacion( Autorizacion autorizacion){
+    autorizacion.rechazarse();
+    autorizaciones.remove(autorizacion);
+  }
+  
+  public void eliminarAutorizacion (Autorizacion autorizacion ){
+      autorizaciones.remove(autorizacion);
+  }
 }

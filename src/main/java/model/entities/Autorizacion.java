@@ -15,4 +15,8 @@ public class Autorizacion {
     public void aceptarse() {
     aceptado = true;
     }
+    
+    public void rechazarse(){
+        persona.eliminarAutorizacion(this);
+    }
 }
