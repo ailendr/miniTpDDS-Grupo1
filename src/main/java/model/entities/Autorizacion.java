@@ -10,14 +10,13 @@ public class Autorizacion extends EntidadPersistente {
 
   @ManyToOne
   @JoinColumn(name="persona_id", referencedColumnName = "id")
-  @Transient
   private Persona persona;
   //private Estado estado; -> ver si nos conviene eso o el booleano y que valide.
   @Column(name = "aceptado")
   private Boolean aceptado;
 
   @ManyToOne
-  @JoinColumn(name="persona_id", referencedColumnName = "id")
+  @JoinColumn(name="personaAutorizada_id", referencedColumnName = "id")
   private Persona personaAutorizada;
 
   public Autorizacion(Persona persona, Boolean aceptado, Persona personaAutorizada) {
