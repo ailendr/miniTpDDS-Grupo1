@@ -2,17 +2,32 @@ package model.seguridad;
 
 import model.Repositorios.RepoAutorizaciones;
 import model.Repositorios.RepoPersonas;
+import model.db.EntidadPersistente;
 import model.entities.Autorizacion;
 import model.entities.Persona;
 
+import javax.persistence.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-public class Usuario {
+@Entity
+@Table
+public class Usuario extends EntidadPersistente {
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinTable(name ="id_persona")
   private Persona persona;
+  @Column(name ="nombreUsuario")
   private String nombreUsuario;
+  @Column (name = "contrasenia")
   private String contrasenia;
+
+  @Transient
+  private String nombreUsuarioAValidar;
+  @Transient
+  private String contraseniaAValidar;
+
+  @Column(name = "esAdiministrador")
+  private Boolean esAdministrador;
 
   public Usuario(Persona persona, String nombreUsuario, String contrasenia, String nombreUsuarioAValidar, String contraseniaAValidar) {
     this.persona = persona;
@@ -22,9 +37,7 @@ public class Usuario {
     this.contraseniaAValidar = contraseniaAValidar;
   }
 
-  private String nombreUsuarioAValidar;
-  private String contraseniaAValidar;
-  private Boolean esAdministrador;
+
 
   private void registrarse(){
     //TODO
