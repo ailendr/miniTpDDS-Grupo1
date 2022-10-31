@@ -1,21 +1,47 @@
 package model.entities;
 
+import model.db.EntidadPersistente;
+
+import javax.persistence.*;
 import java.awt.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class Persona {
+@Entity
+@Table(name = "persona")
+public class Persona  extends EntidadPersistente {
+
+  @Column(name="nombre")
   private String nombre;
+  @Column(name="apellido")
   private String apellido;
+
+  @Column(name="dni")
   private String dni;
-  private Date fechaNacimiento;
+
+  @Column(name= "fechaNacimiento", columnDefinition = "DATE")
+  private LocalDate fechaNacimiento;
+
+  /*@OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL}, fetch= FetchType.LAZY )*/
+  @Transient
   private ArrayList <Autorizacion> autorizaciones;
+
+ /* @ManyToOne
+  @JoinColumn(name="ciudad_id", referencedColumnName = "id")*/
+  @Transient
   private Ciudad ciudad;
+
+  /*@ManyToOne
+  @JoinColumn(name="localidad_id", referencedColumnName = "id")*/
+  @Transient
   private Localidad localidad;
+
+  @Transient
   private Image foto;
 
-  public Persona(String nombre, String apellido, String dni, Date fechaNacimiento, ArrayList<Autorizacion> autorizaciones, Ciudad ciudad, Localidad localidad, Image foto) {
+  public Persona(String nombre, String apellido, String dni, LocalDate fechaNacimiento, ArrayList<Autorizacion> autorizaciones, Ciudad ciudad, Localidad localidad, Image foto) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.dni = dni;
@@ -26,7 +52,7 @@ public class Persona {
     this.foto = foto;
   }
 
-  public void setFechaNacimiento(Date fechaNacimiento) {
+  public void setFechaNacimiento(LocalDate fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }
 
