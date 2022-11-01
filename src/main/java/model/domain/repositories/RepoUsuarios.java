@@ -1,4 +1,4 @@
-package model.Repositorios;
+package model.domain.repositories;
 
 import model.seguridad.Usuario;
 

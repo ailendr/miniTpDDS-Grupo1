@@ -1,6 +1,6 @@
-package model.Repositorios;
+package model.domain.repositories;
 
-import model.entities.Persona;
+import model.domain.entities.Persona;
 
 import java.util.ArrayList;
 

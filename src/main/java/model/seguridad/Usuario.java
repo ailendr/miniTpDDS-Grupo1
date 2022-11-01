@@ -1,13 +1,12 @@
 package model.seguridad;
 
-import model.Repositorios.RepoAutorizaciones;
-import model.Repositorios.RepoPersonas;
+import model.domain.repositories.RepoAutorizaciones;
+import model.domain.repositories.RepoPersonas;
 import model.db.EntidadPersistente;
-import model.entities.Autorizacion;
-import model.entities.Persona;
+import model.domain.entities.Autorizacion;
+import model.domain.entities.Persona;
 
 import javax.persistence.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
 @Entity

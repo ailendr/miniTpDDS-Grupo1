@@ -1,4 +1,4 @@
-package model.entities;
+package model.domain.entities;
 
 import model.db.EntidadPersistente;
 

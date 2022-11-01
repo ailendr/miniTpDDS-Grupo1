@@ -1,13 +1,11 @@
-package model.entities;
+package model.domain.entities;
 
 import model.db.EntidadPersistente;
-import org.hibernate.engine.transaction.jta.platform.internal.JOnASJtaPlatform;
 
 import javax.persistence.*;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 

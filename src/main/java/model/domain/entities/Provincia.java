@@ -1,9 +1,8 @@
-package model.entities;
+package model.domain.entities;
 
 import model.db.EntidadPersistente;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

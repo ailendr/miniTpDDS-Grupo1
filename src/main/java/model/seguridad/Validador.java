@@ -1,6 +1,6 @@
 package model.seguridad;
 
-import model.entities.Persona;
+import model.domain.entities.Persona;
 
 public class Validador {
   public Boolean validarPersona(Persona persona){
